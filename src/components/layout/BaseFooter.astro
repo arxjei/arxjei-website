@@ -1,69 +1,15 @@
 ---
-export interface Props {
-	backToTop?: boolean;
-}
+import { github } from "@lib/github";
+const userData = await github.getUser();
 
-const { backToTop = false } = Astro.props;
+export const prerender = true;
 ---
 
-{
-	backToTop && (
-		<button
-			class:list={[
-				backToTop ? `backToTop` : null,
-				"transition-300 z-50 opacity-0 fixed flex bottom-[10px] right-[30px] w-10 h-10 bg-white border border-black card-shadow",
-			]}>
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				fill="none"
-				viewBox="0 0 24 24"
-				height="100%"
-				width="100%"
-				stroke-width="1.5"
-				stroke="currentColor">
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					d="m4.5 15.75 7.5-7.5 7.5 7.5"
-				/>
-			</svg>
-		</button>
-	)
-}
-
-<footer class="bg-black text-white p-6 bg-yellow-400 border-t-4 border-black">
+<footer class="text-white p-6 border-t-2 border-black bg-black text-white">
 	<div class="max-w-7xl mx-auto text-center">
-		<p class="text-lg font-medium poppins text-black">
-			&copy; {new Date().getFullYear()} Arxjei. All rights reserved.
+		<p class="text-lg font-medium poppins">
+			&copy; {new Date().getFullYear()}
+			{userData.name}. All rights reserved.
 		</p>
 	</div>
 </footer>
-
-<style>
-	.backToTop.active {
-		opacity: 1;
-	}
-</style>
-
-<script>
-	document.addEventListener("astro:page-load", () => {
-		const backToTop = document.querySelector(".backToTop");
-
-		const toggleBackToTopButton = () => {
-			if (window.scrollY > 250) {
-				backToTop?.classList.add("active");
-			} else {
-				backToTop?.classList.remove("active");
-			}
-		};
-
-		backToTop?.addEventListener("click", () => {
-			window.scrollTo({
-				top: 0,
-				behavior: "smooth",
-			});
-		});
-
-		window.addEventListener("scroll", toggleBackToTopButton);
-	});
-</script>

@@ -1,5 +1,5 @@
 ---
-import { github } from "../../lib/github";
+import { github } from "@lib/github";
 import LocalFont from "../generic/LocalFont.astro";
 import { ViewTransitions } from "astro:transitions";
 
@@ -90,8 +90,8 @@ export const prerender = true;
 	/>
 	<link
 		rel="icon"
-		type="image/svg"
-		href="/favicon.svg"
+		type="image/svg+xml"
+		href=`${userData.avatar_url}`
 	/>
 
 	<title>{userData.name} | {title}</title>

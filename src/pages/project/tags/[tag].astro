@@ -1,0 +1,52 @@
+---
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import Layout from "@layouts/Default.astro";
+import ProjectList from "@components/project/ProjectList.astro";
+import { Button } from "@eliancodes/brutal-ui";
+
+export async function getStaticPaths() {
+	const allPosts = await getCollection("project").then((collection) =>
+		collection.reverse()
+	);
+
+	const tags: string[] = [];
+
+	allPosts.forEach((post) => {
+		post.data.tags.forEach((tag) => {
+			tags.push(tag.toLowerCase());
+		});
+	});
+
+	return Array.from(new Set(tags)).map((tag) => {
+		return {
+			params: { tag },
+			props: {
+				tag,
+				projects: allPosts.filter((post) =>
+					post.data.tags.map((tag) => tag.toLowerCase()).includes(tag)
+				),
+			},
+		};
+	});
+}
+
+interface Props {
+	tag: string;
+	projects: CollectionEntry<"project">[];
+}
+
+const { tag, projects } = Astro.props;
+---
+
+<Layout
+	title={`Projects: ${tag}`}
+	description={`Brutal Projects | All projects tagged with ${tag}`}
+	pageTitle={`Brutal Projects | Projects tagged with ${tag}`}>
+	<main class="p-6 bg-purple grid gap-4">
+		<div>
+			<Button href="/project/">&larr; Back to projects</Button>
+		</div>
+		<ProjectList projects={projects} />
+	</main>
+</Layout>

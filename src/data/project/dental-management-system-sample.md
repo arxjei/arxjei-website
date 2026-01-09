@@ -1,15 +1,19 @@
 ---
 imgUrl: "../../assets/placeholder.webp"
-title: Student Digital Violation Monitoring System
+title: Dental Management System
 description:
   Lorem markdownum longo os thyrso telum, continet servat fetus nymphae, vox
   nocte sedesque, decimo. Omnia esse, quam sive; conplevit illis indestrictus
   admovit dedit sub quod protectus, impedit non.
 tags:
-  - PHP
+  - FilamentPHP v3
+  - Laravel
+  - Laravel Livewire
+  - TailwindCSS
+  - AlpineJS
+  - Pest
   - MySQL
-  - Bootstrap V5
-pubDate: 01/08/2026 04:55
+pubDate: 11/09/2022 14:25
 author: "Elian Van Cutsem"
 ---
 

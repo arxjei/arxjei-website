@@ -1,0 +1,36 @@
+---
+interface Props extends HTMLAttributes<"a"> {
+	class?: string | undefined;
+	color?: string | undefined;
+}
+
+import type { HTMLAttributes } from "astro/types";
+
+if (Astro.props.color === undefined) {
+	Astro.props.color = "#F59E0B";
+}
+
+const { class: className, color, ...rest } = Astro.props;
+---
+
+<style define:vars={{ color: color }}>
+	a.custom-brutal-btn {
+		color: black;
+		background-color: white;
+		display: inline-block;
+		padding: 0.5rem 1rem;
+		border: 2px solid black;
+		font-family: "Poppins", serif;
+		filter: drop-shadow(3px 3px 0 black);
+	}
+	a.custom-brutal-btn:hover {
+		background-color: var(--color);
+		filter: drop-shadow(5px 5px 0 rgb(0 0 0 / 1));
+	}
+</style>
+
+<a
+	{...rest}
+	class={`custom-brutal-btn ${className || ""}`}>
+	<slot />
+</a>

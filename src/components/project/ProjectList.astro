@@ -1,0 +1,22 @@
+---
+import type { CollectionEntry } from "astro:content";
+import ProjectSummaryCard from "./ProjectSummaryCard.astro";
+
+interface Props {
+	projects: CollectionEntry<"project">[];
+}
+
+const { projects } = Astro.props;
+---
+
+<ul class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+	{
+		projects.map((project) => {
+			return (
+				<li>
+					<ProjectSummaryCard project={project} />
+				</li>
+			);
+		})
+	}
+</ul>

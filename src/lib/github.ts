@@ -3,7 +3,6 @@ interface GitHubUser {
   name: string;
   avatar_url: string;
   bio: string;
-  blog: string;
   location: string;
   email: string | null;
   hireable: boolean | null;

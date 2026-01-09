@@ -1,0 +1,146 @@
+[
+  {
+    "name": "Astro",
+    "url": "https://astro.build/",
+    "logo": "https://astro.build/assets/astro-logo-dark.svg",
+    "color": "#FF5D01"
+  },
+  {
+    "name": "Next.js",
+    "url": "https://nextjs.org/",
+    "logo": "https://assets.vercel.com/image/upload/v1662130559/nextjs/Icon_dark_background.png",
+    "color": "#000000"
+  },
+  {
+    "name": "React",
+    "url": "https://react.dev/",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
+    "color": "#61DAFB"
+  },
+  {
+    "name": "TypeScript",
+    "url": "https://www.typescriptlang.org/",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg",
+    "color": "#3178C6"
+  },
+  {
+    "name": "JavaScript",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+    "color": "#F7DF1E"
+  },
+  {
+    "name": "HTML5",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTML",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/3/38/HTML5_Badge.svg",
+    "color": "#E34F26"
+  },
+  {
+    "name": "CSS3",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg",
+    "color": "#1572B6"
+  },
+  {
+    "name": "Tailwind CSS",
+    "url": "https://tailwindcss.com/",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
+    "color": "#38BDF8"
+  },
+  {
+    "name": "Bootstrap",
+    "url": "https://getbootstrap.com/",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Bootstrap_logo.svg",
+    "color": "#7952B3"
+  },
+  {
+    "name": "Sass",
+    "url": "https://sass-lang.com/",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/9/96/Sass_Logo_Color.svg",
+    "color": "#CC6699"
+  },
+  {
+    "name": "jQuery",
+    "url": "https://jquery.com/",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/9/9e/JQuery_logo.svg",
+    "color": "#0769AD"
+  },
+  {
+    "name": "PHP",
+    "url": "https://www.php.net/",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg",
+    "color": "#777BB4"
+  },
+  {
+    "name": "Laravel",
+    "url": "https://laravel.com/",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Laravel.svg",
+    "color": "#FF2D20"
+  },
+  {
+    "name": "Laravel Livewire",
+    "url": "https://livewire.laravel.com/",
+    "logo": "https://laravel-livewire.com/img/twitter.png",
+    "color": "#4E56A6"
+  },
+  {
+    "name": "FilamentPHP",
+    "url": "https://filamentphp.com/",
+    "logo": "https://filamentphp.com/images/logo.svg",
+    "color": "#F59E0B"
+  },
+  {
+    "name": "WordPress",
+    "url": "https://wordpress.org/",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/9/98/WordPress_blue_logo.svg",
+    "color": "#21759B"
+  },
+  {
+    "name": "WooCommerce",
+    "url": "https://woocommerce.com/",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/2/2a/WooCommerce_logo.svg",
+    "color": "#96588A"
+  },
+  {
+    "name": "MySQL",
+    "url": "https://www.mysql.com/",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/d/dd/MySQL_logo.svg",
+    "color": "#4479A1"
+  },
+  {
+    "name": "PostgreSQL",
+    "url": "https://www.postgresql.org/",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg",
+    "color": "#4169E1"
+  },
+  {
+    "name": "DigitalOcean",
+    "url": "https://www.digitalocean.com/",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/f/ff/DigitalOcean_logo.svg",
+    "color": "#0080FF"
+  },
+  {
+    "name": "Linux",
+    "url": "https://www.linux.org/",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg",
+    "color": "#FCC624"
+  },
+  {
+    "name": "Ubuntu",
+    "url": "https://ubuntu.com/",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Ubuntu-logo-2022.svg",
+    "color": "#E95420"
+  },
+  {
+    "name": "Postman",
+    "url": "https://www.postman.com/",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Postman_%28software%29.png",
+    "color": "#FF6C37"
+  },
+  {
+    "name": "Insomnia",
+    "url": "https://insomnia.rest/",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Insomnia-logo.svg",
+    "color": "#5849BE"
+  }
+]

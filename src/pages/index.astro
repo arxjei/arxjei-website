@@ -1,81 +1,73 @@
 ---
-import { github } from "../lib/github";
+export const prerender = true;
+
+import { github } from "@lib/github";
 import Layout from "@layouts/Default.astro";
-import RecentBlogPosts from "@components/generic/RecentBlogPosts.astro";
-import MobileSocials from "@components/home/MobileSocials.astro";
-import { Pill } from "@eliancodes/brutal-ui";
-import { Button } from "@eliancodes/brutal-ui";
-import { Card } from "@eliancodes/brutal-ui";
-import CustomBrutalCard from "../components/home/CustomBrutalCard.astro";
-import CustomBrutalPill from "../components/home/CustomBrutalPill.astro";
+import RecentProjectPost from "@components/generic/RecentProjectPost.astro";
+import CustomBrutalCard from "@components/home/CustomBrutalCard.astro";
+import CustomBrutalPill from "@components/home/CustomBrutalPill.astro";
+import CustomBrutalButton from "@components/home/CustomBrutalButton.astro";
+import ContactMe from "@components/generic/ContactMe.astro";
 
 const userData = await github.getUser();
-
-export const prerender = true;
 ---
 
 <Layout
 	title="Home"
 	pageTitle=`${userData.name} - Home`
-	description=`Welcome to ${userData.name}'s personal website. Explore blogs, projects, and more about Arxjei.`>
-	<main class="bg-lime-500 p-6">
-		<MobileSocials />
-
+	description=`Welcome to ${userData.name}'s personal website. Explore projects.`>
+	<main>
 		<section
 			id="about"
-			class="grid md:grid-cols-12 gap-6 mt-6">
+			class="grid grid-cols-8 gap-0">
 			<div
-				class="col-span-12 md:col-span-4 lg:col-span-3 flex justify-center md:justify-end items-start order-first md:order-last">
-				<div class="relative group">
-					<div
-						class="absolute -inset-1 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-300">
-					</div>
-					<CustomBrutalCard
-						padding="0"
-						height="auto">
-						<img
-							src={userData.avatar_url}
-							alt={userData.name}
-							class="w-full h-auto"
-							width="300"
-							height="300"
-						/>
-					</CustomBrutalCard>
-				</div>
+				class="col-span-8 md:col-span-3 lg:col-span-2 order-first md:order-last overflow-hidden">
+				<CustomBrutalCard
+					class="border-b-2 md:border-l-2 border-black h-full !p-0">
+					<img
+						src={userData.avatar_url}
+						alt={userData.name}
+						class="h-full w-full object-cover"
+					/>
+				</CustomBrutalCard>
 			</div>
-
-			<div
-				class="col-span-12 md:col-span-8 lg:col-span-9 flex flex-col justify-center gap-6">
-				<CustomBrutalCard class="!bg-fuchsia-400">
-					<div class="flex flex-col justify-between items-start gap-4">
-						<p class="sm:mt-4 outfit text-2xl md:text-5xl lg:text-7xl">
-							<span class="font-bold">Hi, Its {userData.name} 👋</span>
-						</p>
-						<p class="sm:mt-2 outfit text-xl md:text-3xl lg:text-5xl">
-							{userData.bio}
-						</p>
-						<div class="flex flex-wrap gap-2 mt-2">
-							<CustomBrutalPill class="poppins">
+			<div class="col-span-8 md:col-span-5 lg:col-span-6">
+				<div class="grid grid-rows-[2fr_1fr] h-full">
+					<CustomBrutalCard
+						class="border-b-2 border-r-2 border-black !bg-lime-400">
+						<div class="flex flex-col justify-between items-start">
+							<p class="outfit text-5xl md:text-5xl lg:text-7xl">
+								<span class="font-bold">Hi, Its {userData.name}</span>
+							</p>
+							<p class="mt-5 outfit text-2xl md:text-3xl lg:text-5xl">
+								{userData.bio}
+							</p>
+						</div>
+						<div class="flex flex-wrap gap-2 mt-8">
+							<CustomBrutalPill>
 								{userData.followers} Followers
 							</CustomBrutalPill>
-							<CustomBrutalPill class="poppins">
+							<CustomBrutalPill>
 								{userData.following} Following
 							</CustomBrutalPill>
-							<CustomBrutalPill class="poppins">
+							<CustomBrutalPill>
 								{userData.public_repos} Public Repositories
 							</CustomBrutalPill>
 						</div>
-						<Button
-							color="lime"
-							target={"_self"}
-							href="/blog/">
-							Check out the blog &rarr;
-						</Button>
-					</div>
-				</CustomBrutalCard>
+					</CustomBrutalCard>
+					<CustomBrutalCard
+						class="border-b-2 border-r-2 border-t-2 border-black !bg-black text-white">
+						<p class="outfit text-2xl md:text-3xl lg:text-5xl">
+							aside from coding, I enjoy video creation, exploring new
+							technologies, and engaging in outdoor activities.
+						</p>
+					</CustomBrutalCard>
+				</div>
 			</div>
 		</section>
 
-		<RecentBlogPosts />
+		<RecentProjectPost />
+
+		<ContactMe />
 	</main>
 </Layout>
