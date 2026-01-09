@@ -1,8 +1,8 @@
 ---
+export const prerender = true;
+
 import { github } from "@lib/github";
 const userData = await github.getUser();
-
-export const prerender = true;
 ---
 
 <footer class="text-white p-6 border-t-2 border-black bg-black text-white">

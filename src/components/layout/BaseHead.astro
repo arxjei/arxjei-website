@@ -1,4 +1,6 @@
 ---
+export const prerender = true;
+
 import { github } from "@lib/github";
 import LocalFont from "../generic/LocalFont.astro";
 import { ViewTransitions } from "astro:transitions";
@@ -17,8 +19,6 @@ if (Astro.props.ogImage === undefined) {
 
 const { title, description, ogImage } = Astro.props;
 const userData = await github.getUser();
-
-export const prerender = true;
 ---
 
 <head>

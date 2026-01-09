@@ -12,7 +12,7 @@ interface Props {
 const { count } = Astro.props;
 
 const projects = await getCollection("project").then((projects) =>
-	projects.reverse().slice(0, count ?? 3)
+	projects.reverse().slice(0, count ?? 4)
 );
 ---
 

@@ -12,8 +12,8 @@ const { default: techStack } = await import("@data/misc/tech-stack.json");
 <section class="grid grid-cols-1">
 	<CustomBrutalCard
 		class="md:col-span-2 border-t-2 border-b-2 border-black !bg-black text-white">
-		<h1 class="text-7xl md:text-6xl lg:text-7xl font-bold mb-4">
-			Let's Work Together
+		<h1 class="text-5xl md:text-5xl lg:text-6xl font-bold mb-4">
+			Let's Work Together ❤️
 		</h1>
 		<p class="text-lg md:text-xl mb-2">
 			Have a project in mind? I'd love to hear from you.
@@ -21,27 +21,22 @@ const { default: techStack } = await import("@data/misc/tech-stack.json");
 		<p class="text-base md:text-lg">
 			Send me a message and I'll get back to you as soon as possible.
 		</p>
-	</CustomBrutalCard>
-
-	<CustomBrutalCard
-		class="md:col-span-2 border-t-2 border-b-2 sm:border-r-2 border-black !bg-lime-400">
-		<h1 class="text-4xl md:text-5xl lg:text-4xl font-bold mb-2">via Email</h1>
-		<p class="text-black mb-4">Prefer email? Drop me a line anytime.</p>
-		<p class="text-xl font-semibold">
+		<p class="text-xl font-semibold mt-6">
+			via email:
 			<a
 				href="mailto:hey@arjaymarigondon.dev"
-				class="text-black hover:text-gray-800 transition-colors boder-b-2 border-black">
+				class="transition-colors boder-b-2 border-black text-lime-400 hover:underline">
 				{userData.email ? userData.email : "hey@arjaymarigondon.dev"}
 			</a>
 		</p>
 	</CustomBrutalCard>
 
 	<CustomBrutalCard
-		class="border-t-2 border-b-2 sm:border-l-2 border-black !bg-orange-400">
-		<h1 class="text-4xl md:text-5xl lg:text-4xl font-bold mb-2">
+		class="border-t-2 border-b-2 sm:border-l-2 border-black !bg-lime-400">
+		<h1 class="text-5xl md:text-5xl lg:text-6xl font-bold mb-2">
 			Here's The Technologies I'm Using
 		</h1>
-		<p class="text-black mb-4">
+		<p class="text-black text-base md:text-xl mb-4">
 			Feel free to connect with me on these platforms.
 		</p>
 		<div class="flex flex-wrap gap-2">

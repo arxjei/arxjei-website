@@ -6,10 +6,6 @@ interface Props extends HTMLAttributes<"a"> {
 
 import type { HTMLAttributes } from "astro/types";
 
-if (Astro.props.color === undefined) {
-	Astro.props.color = "#F59E0B";
-}
-
 const { class: className, color, ...rest } = Astro.props;
 ---
 
@@ -24,8 +20,7 @@ const { class: className, color, ...rest } = Astro.props;
 		filter: drop-shadow(3px 3px 0 black);
 	}
 	a.custom-brutal-btn:hover {
-		background-color: var(--color);
-		filter: drop-shadow(5px 5px 0 rgb(0 0 0 / 1));
+		filter: drop-shadow(5px 5px 0 black);
 	}
 </style>
 

@@ -3,6 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import { Pill, Button } from "@eliancodes/brutal-ui";
 import SummaryCard from "../generic/SummaryCard.astro";
 import CustomBrutalPill from "../home/CustomBrutalPill.astro";
+import CustomBrutalButton from "@components/home/CustomBrutalButton.astro";
 
 interface Props {
 	project: CollectionEntry<"project">;
@@ -11,13 +12,18 @@ interface Props {
 const { project } = Astro.props;
 ---
 
+<div
+	class="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] xl:w-[calc(25%-1.5rem)]">
+</div>
 <SummaryCard
 	title={project.data.title}
 	imgAlt={project.data.title}
 	imgSrc={project.data.imgUrl}
 	description={project.data.description}>
 	<div class="flex justify-end my-4">
-		<Button href={`/project/${project.id}/`}>Read more &rarr;</Button>
+		<CustomBrutalButton href={`/project/${project.id}/`}>
+			Read more &rarr;
+		</CustomBrutalButton>
 	</div>
 
 	<div class="hidden sm:inline-block">

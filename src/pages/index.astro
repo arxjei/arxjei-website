@@ -10,6 +10,7 @@ import CustomBrutalButton from "@components/home/CustomBrutalButton.astro";
 import ContactMe from "@components/generic/ContactMe.astro";
 
 const userData = await github.getUser();
+const userDataSocialMedia = await github.getUserSocialMedia();
 ---
 
 <Layout
@@ -54,12 +55,32 @@ const userData = await github.getUser();
 								{userData.public_repos} Public Repositories
 							</CustomBrutalPill>
 						</div>
+						<p class="mt-5 outfit text-xl md:text-2xl lg:text-4xl">
+							You can find me on ...
+						</p>
+						<div class="flex flex-wrap gap-2 mt-4">
+							<CustomBrutalButton
+								href={userData.html_url}
+								target="_blank">
+								Github
+							</CustomBrutalButton>
+							{
+								userDataSocialMedia?.map((socialMedia: any) => (
+									<CustomBrutalButton
+										href={socialMedia.url}
+										class="capitalize"
+										target="_blank">
+										{socialMedia.provider}
+									</CustomBrutalButton>
+								))
+							}
+						</div>
 					</CustomBrutalCard>
 					<CustomBrutalCard
 						class="border-b-2 border-r-2 border-t-2 border-black !bg-black text-white">
 						<p class="outfit text-2xl md:text-3xl lg:text-5xl">
 							aside from coding, I enjoy video creation, exploring new
-							technologies, and engaging in outdoor activities.
+							technologies, and engaging in outdoor activities.🏃
 						</p>
 					</CustomBrutalCard>
 				</div>

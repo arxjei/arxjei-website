@@ -1,10 +1,10 @@
+export const prerender = true;
+
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 import { github } from "@lib/github";
 
 const userData = await github.getUser();
-
-export const prerender = true;
 
 export async function GET(context) {
 	const project = await getCollection("project");
