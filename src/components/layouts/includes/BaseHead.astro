@@ -1,6 +1,7 @@
 ---
 export const prerender = true;
 
+import "devicon/devicon.min.css";
 import { github } from "@lib/github";
 import LocalFont from "@components/misc/LocalFont.astro";
 import { ViewTransitions } from "astro:transitions";
@@ -92,12 +93,6 @@ const userData = await github.getUser();
 		rel="icon"
 		type="image/svg+xml"
 		href=`${userData.avatar_url}`
-	/>
-
-	<link
-		rel="stylesheet"
-		type="text/css"
-		href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
 	/>
 
 	<title>{userData.name} | {title}</title>
