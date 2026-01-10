@@ -1,13 +1,12 @@
 ---
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
-import Layout from "@layouts/Default.astro";
-import ProjectList from "@components/project/ProjectList.astro";
-import { Button } from "@eliancodes/brutal-ui";
-import CustomBrutalButton from "@components/home/CustomBrutalButton.astro";
+import BaseLayout from "@components/layouts/BaseLayout.astro";
+import ProjectList from "@components/projects/ProjectList.astro";
+import CustomBrutalButton from "@components/CustomBrutalButton.astro";
 
 export async function getStaticPaths() {
-	const allPosts = await getCollection("project").then((collection) =>
+	const allPosts = await getCollection("projects").then((collection) =>
 		collection.reverse()
 	);
 
@@ -34,13 +33,13 @@ export async function getStaticPaths() {
 
 interface Props {
 	tag: string;
-	projects: CollectionEntry<"project">[];
+	projects: CollectionEntry<"projects">[];
 }
 
 const { tag, projects } = Astro.props;
 ---
 
-<Layout
+<BaseLayout
 	title={`Projects: ${tag}`}
 	description={`Brutal Projects | All projects tagged with ${tag}`}
 	pageTitle={`Brutal Projects | Projects tagged with ${tag}`}>
@@ -50,16 +49,16 @@ const { tag, projects } = Astro.props;
 				Tagged with: {tag}
 			</h2>
 			<div class="hidden md:block">
-				<CustomBrutalButton href="/project/">
+				<CustomBrutalButton href="/projects/">
 					&larr; Back to Projects
 				</CustomBrutalButton>
 			</div>
 			<div class="block md:hidden">
-				<CustomBrutalButton href="/project/">
+				<CustomBrutalButton href="/projects/">
 					&larr; Back to Projects
 				</CustomBrutalButton>
 			</div>
 		</div>
 		<ProjectList projects={projects} />
 	</main>
-</Layout>
+</BaseLayout>

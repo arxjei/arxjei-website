@@ -8,7 +8,7 @@ interface Props {
 
 const navigationItems = [
 	{ name: "Home", url: "/" },
-	{ name: "Projects", url: "/project/" },
+	{ name: "Projects", url: "/projects/" },
 ];
 const userData = await github.getUser();
 
@@ -21,7 +21,7 @@ const { pageTitle } = Astro.props;
 		href="/"
 		class="p-6 border-black border-r-4 transition-all duration-150 ease-in-out hover:bg-lime-400"
 		title="Back to Home">
-		<p class="righteous md:text-5xl text-3xl">
+		<p class="righteous md:text-5xl text-4xl">
 			@{userData.login}
 		</p>
 	</a>

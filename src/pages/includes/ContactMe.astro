@@ -2,8 +2,8 @@
 export const prerender = true;
 import { github } from "@lib/github";
 
-import CustomBrutalCard from "@components/home/CustomBrutalCard.astro";
-import CustomBrutalPill from "@components/home/CustomBrutalPill.astro";
+import CustomBrutalCard from "@components/CustomBrutalCard.astro";
+import CustomBrutalPill from "@components/CustomBrutalPill.astro";
 
 const userData = await github.getUser();
 const { default: techStack } = await import("@data/misc/tech-stack.json");
