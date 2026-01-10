@@ -1,5 +1,5 @@
 ---
-import CustomBrutalButton from "@components/home/CustomBrutalButton.astro";
+import CustomBrutalButton from "@components/CustomBrutalButton.astro";
 
 interface Props {
 	pubDate: Date;
@@ -14,7 +14,7 @@ const { pubDate, author, viewLiveDemoLink } = Astro.props;
 	class="poppins lg:border-l-2 lg:border-b-2 border-black col-span-4 px-6 md:px-12 py-8 md:py-12">
 	<div class="max-w-3xl">
 		<CustomBrutalButton
-			href={`/project`}
+			href={`/projects`}
 			class="mb-6 md:mb-8">
 			&larr; Back to projects
 		</CustomBrutalButton>
@@ -28,10 +28,10 @@ const { pubDate, author, viewLiveDemoLink } = Astro.props;
 						month: "long",
 						day: "numeric",
 						timeZone: "Asia/Manila",
-						timeZoneName: "short",
 						hour12: true,
 						hour: "numeric",
 						minute: "numeric",
+						timeZoneName: "long",
 					})
 				}
 			</div>
@@ -39,7 +39,7 @@ const { pubDate, author, viewLiveDemoLink } = Astro.props;
 			<span>by <span class="font-medium text-gray-800">{author}</span></span>
 		</div>
 
-		<div class="prose prose-lg md:prose-xl max-w-none mb-12">
+		<div class="prose max-w-none mb-12">
 			<slot />
 		</div>
 

@@ -1,12 +1,12 @@
 ---
+import CustomBrutalCard from "@components/CustomBrutalCard.astro";
 import type { CollectionEntry } from "astro:content";
-import { Pill, Button } from "@eliancodes/brutal-ui";
-import SummaryCard from "@components/generic/SummaryCard.astro";
-import CustomBrutalPill from "@components/home/CustomBrutalPill.astro";
-import CustomBrutalButton from "@components/home/CustomBrutalButton.astro";
+import { Image } from "astro:assets";
+import CustomBrutalButton from "@components/CustomBrutalButton.astro";
+import CustomBrutalPill from "@components/CustomBrutalPill.astro";
 
 interface Props {
-	project: CollectionEntry<"project">;
+	project: CollectionEntry<"projects">;
 }
 
 const { project } = Astro.props;
@@ -16,13 +16,23 @@ const { default: techStack } = await import("@data/misc/tech-stack.json");
 <div
 	class="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] xl:w-[calc(25%-1.5rem)]">
 </div>
-<SummaryCard
-	title={project.data.title}
-	imgAlt={project.data.title}
-	imgSrc={project.data.imgUrl}
-	description={project.data.description}>
+
+<CustomBrutalCard class="border-2 border-black">
+	<h3 class="poppins text-lg md:text-xl">
+		{project.data.title}
+	</h3>
+	<div class="border-3 border-black my-4 h-56">
+		<Image
+			src={project.data.imgUrl}
+			alt={project.data.title}
+			width={800}
+			height={400}
+			class="rounded h-full w-full object-cover"
+		/>
+	</div>
+	<p class="poppins">{project.data.description}</p>
 	<div class="flex justify-end my-4">
-		<CustomBrutalButton href={`/project/${project.id}/`}>
+		<CustomBrutalButton href={`/projects/${project.id}/`}>
 			Read more &rarr;
 		</CustomBrutalButton>
 	</div>
@@ -37,7 +47,7 @@ const { default: techStack } = await import("@data/misc/tech-stack.json");
 							<li>
 								<a
 									class="sanchez"
-									href={`/project/tags/${tag.toLowerCase()}/`}>
+									href={`/projects/tags/${tag.toLowerCase()}/`}>
 									{(() => {
 										const tech = techStack.find((t) => t.id === tag);
 										return tech ? (
@@ -48,9 +58,7 @@ const { default: techStack } = await import("@data/misc/tech-stack.json");
 												{tech.name}
 											</CustomBrutalPill>
 										) : (
-											<CustomBrutalPill class="poppins">
-												{tag}
-											</CustomBrutalPill>
+											<CustomBrutalPill class="poppins">{tag}</CustomBrutalPill>
 										);
 									})()}
 								</a>
@@ -68,4 +76,4 @@ const { default: techStack } = await import("@data/misc/tech-stack.json");
 			}
 		</div>
 	</div>
-</SummaryCard>
+</CustomBrutalCard>

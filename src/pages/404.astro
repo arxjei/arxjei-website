@@ -1,10 +1,10 @@
 ---
-import RecentProjectPost from "@components/generic/RecentProjectPost.astro";
-import Layout from "@layouts/Default.astro";
+import RecentProjectPost from "@pages/includes/RecentProjectPost.astro";
+import BaseLayout from "@components/layouts/BaseLayout.astro";
 import ErrorPage from "@components/errors/404.astro";
 ---
 
-<Layout
+<BaseLayout
 	title="Page Not Found"
 	description="Page not found"
 	classList="h-full"
@@ -13,4 +13,4 @@ import ErrorPage from "@components/errors/404.astro";
 		<ErrorPage />
 		<RecentProjectPost />
 	</main>
-</Layout>
+</BaseLayout>

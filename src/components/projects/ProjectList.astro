@@ -1,9 +1,9 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import ProjectSummaryCard from "./ProjectSummaryCard.astro";
+import ProjectCard from "@components/projects/ProjectCard.astro";
 
 interface Props {
-	projects: CollectionEntry<"project">[];
+	projects: CollectionEntry<"projects">[];
 }
 
 const { projects } = Astro.props;
@@ -14,7 +14,7 @@ const { projects } = Astro.props;
 		projects.map((project) => {
 			return (
 				<li>
-					<ProjectSummaryCard project={project} />
+					<ProjectCard project={project} />
 				</li>
 			);
 		})

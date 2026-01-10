@@ -7,17 +7,17 @@ import { github } from "@lib/github";
 const userData = await github.getUser();
 
 export async function GET(context) {
-	const project = await getCollection("project");
+	const projects = await getCollection("projects");
 	return rss({
 		title: `${userData.name} - Projects`,
 		description: userData.bio,
 		stylesheet: false,
 		site: context.site,
-		items: project.map((post) => ({
+		items: projects.map((post) => ({
 			title: post.data.title,
 			pubDate: post.data.pubDate,
 			description: post.data.description,
-			link: `/project/${post.id}/`,
+			link: `/projects/${post.id}/`,
 			author: userData.name,
 			viewLiveDemoLink: post.data.viewLiveDemoLink,
 		})),

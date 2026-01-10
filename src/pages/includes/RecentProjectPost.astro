@@ -1,9 +1,9 @@
 ---
 import { getCollection } from "astro:content";
-import ProjectList from "@components/project/ProjectList.astro";
+import ProjectList from "@components/projects/ProjectList.astro";
 import { Card, Button, Pill } from "@eliancodes/brutal-ui";
-import CustomBrutalCard from "@components/home/CustomBrutalCard.astro";
-import CustomBrutalButton from "@components/home/CustomBrutalButton.astro";
+import CustomBrutalCard from "@components/CustomBrutalCard.astro";
+import CustomBrutalButton from "@components/CustomBrutalButton.astro";
 
 interface Props {
 	count?: number;
@@ -11,7 +11,7 @@ interface Props {
 
 const { count } = Astro.props;
 
-const projects = await getCollection("project").then((projects) =>
+const projects = await getCollection("projects").then((projects) =>
 	projects.reverse().slice(0, count ?? 4)
 );
 ---
@@ -23,10 +23,10 @@ const projects = await getCollection("project").then((projects) =>
 				Recent Project
 			</h2>
 			<div class="hidden md:block">
-				<CustomBrutalButton href="/project/">More Projects</CustomBrutalButton>
+				<CustomBrutalButton href="/projects/">More Projects</CustomBrutalButton>
 			</div>
 			<div class="block md:hidden">
-				<CustomBrutalButton href="/project/">More Projects</CustomBrutalButton>
+				<CustomBrutalButton href="/projects/">More Projects</CustomBrutalButton>
 			</div>
 		</div>
 		<ProjectList projects={projects} />

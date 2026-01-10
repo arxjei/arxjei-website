@@ -1,8 +1,8 @@
 ---
-import Layout from "./Default.astro";
-import ProjectSideBar from "@components/project/ProjectSideBar.astro";
-import ProjectContent from "@components/project/ProjectContent.astro";
-import RecentProjectPost from "@components/generic/RecentProjectPost.astro";
+import BaseLayout from "@components/layouts/BaseLayout.astro";
+import ProjectSideBar from "@components/projects/ProjectSideBar.astro";
+import ProjectContent from "@components/projects/ProjectContent.astro";
+import RecentProjectPost from "@pages/includes/RecentProjectPost.astro";
 
 const ogImage = new URL(`/v1/generate/og/${Astro.params.slug}.png`, Astro.url);
 
@@ -19,7 +19,7 @@ const { author, pubDate, headings, description, title, viewLiveDemoLink } =
 	Astro.props;
 ---
 
-<Layout
+<BaseLayout
 	title={title}
 	description={description}
 	ogImage={ogImage}>
@@ -35,4 +35,4 @@ const { author, pubDate, headings, description, title, viewLiveDemoLink } =
 	</main>
 
 	<RecentProjectPost count={6} />
-</Layout>
+</BaseLayout>
