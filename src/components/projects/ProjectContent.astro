@@ -1,13 +1,15 @@
 ---
 import CustomBrutalButton from "@components/CustomBrutalButton.astro";
+import CustomBrutalCard from "@components/CustomBrutalCard.astro";
 
 interface Props {
 	pubDate: Date;
 	author: string;
 	viewLiveDemoLink?: string;
+	developerNotes?: string;
 }
 
-const { pubDate, author, viewLiveDemoLink } = Astro.props;
+const { pubDate, author, viewLiveDemoLink, developerNotes } = Astro.props;
 ---
 
 <article
@@ -20,7 +22,7 @@ const { pubDate, author, viewLiveDemoLink } = Astro.props;
 		</CustomBrutalButton>
 
 		<div
-			class="flex flex-wrap items-center gap-2 text-xs md:text-sm text-gray-600 mb-8 md:mb-12 pb-6 md:pb-8 border-b-2 border-gray-200">
+			class="flex flex-wrap items-center gap-2 text-sm text-gray-600 mb-8 md:mb-12 pb-6 md:pb-8 border-b-2 border-gray-200">
 			<div class="font-medium">
 				{
 					pubDate.toLocaleDateString("en-US", {
@@ -38,6 +40,16 @@ const { pubDate, author, viewLiveDemoLink } = Astro.props;
 			<span class="text-gray-400">•</span>
 			<span>by <span class="font-medium text-gray-800">{author}</span></span>
 		</div>
+
+		<!-- developerNotes: just alert message for now -->
+		{
+			developerNotes && (
+				<CustomBrutalCard class="border-2 border-black !bg-lime-400">
+					<h2 class="text-2xl font-bold mb-4">⚠️ Developer Notes</h2>
+					<p class="italic">{developerNotes}</p>
+				</CustomBrutalCard>
+			)
+		}
 
 		<div class="prose max-w-none mb-12">
 			<slot />

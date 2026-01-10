@@ -16,7 +16,10 @@ tags:
   - Meshy AI
 pubDate: "2026-01-10T15:15:00+08:00"
 author: "Ar Jay Marigondon"
-viewLiveDemoLink: ""
+developerNotes:
+  "The work shown here includes real-world projects (with details adjusted for
+  client confidentiality) and conceptual projects created to explore specific
+  skills or ideas."
 ---
 
 ![Screenshot](../../assets/blogs/stitch-sense.png)

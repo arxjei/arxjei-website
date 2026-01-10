@@ -13,10 +13,18 @@ interface Props {
 	pubDate: Date;
 	author: string;
 	viewLiveDemoLink: string | undefined;
+	developerNotes: string | undefined;
 }
 
-const { author, pubDate, headings, description, title, viewLiveDemoLink } =
-	Astro.props;
+const {
+	author,
+	pubDate,
+	headings,
+	description,
+	title,
+	viewLiveDemoLink,
+	developerNotes,
+} = Astro.props;
 ---
 
 <BaseLayout
@@ -29,7 +37,8 @@ const { author, pubDate, headings, description, title, viewLiveDemoLink } =
 		<ProjectContent
 			{pubDate}
 			{author}
-			{viewLiveDemoLink}>
+			{viewLiveDemoLink}
+			{developerNotes}>
 			<slot />
 		</ProjectContent>
 	</main>

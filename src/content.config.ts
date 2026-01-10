@@ -13,6 +13,7 @@ const projectCollection = defineCollection({
 			imgUrl: image(),
 			draft: z.boolean().optional().default(false),
 			viewLiveDemoLink: z.string().optional().default(""),
+			developerNotes: z.string().optional().default(""),
 		}),
 });
 
