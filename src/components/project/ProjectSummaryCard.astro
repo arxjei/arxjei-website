@@ -48,7 +48,9 @@ const { default: techStack } = await import("@data/misc/tech-stack.json");
 												{tech.name}
 											</CustomBrutalPill>
 										) : (
-											<CustomBrutalPill class="poppins">{tag}</CustomBrutalPill>
+											<CustomBrutalPill class="poppins">
+												{tag}
+											</CustomBrutalPill>
 										);
 									})()}
 								</a>

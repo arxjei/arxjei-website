@@ -1,14 +1,53 @@
 ---
 interface Props {
 	headings: Array<Object>;
+	title?: string;
 }
 
-const { headings } = Astro.props;
+const { headings, title } = Astro.props;
+
+const currentPath = Astro.url.pathname;
+const pathSegments = currentPath.split("/").filter(Boolean);
+
+const breadcrumbs = [
+	{ name: "Home", href: "/" },
+	...pathSegments.map((segment, index) => ({
+		name: segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, " "),
+		href: "/" + pathSegments.slice(0, index + 1).join("/"),
+	})),
+];
 ---
 
 <aside
 	class="bg-black p-6 md:p-8 hidden lg:block border-r-2 border-b-2 border-black col-span-1">
 	<nav class="sticky top-6">
+		<div class="mb-6 pb-4 border-b border-gray-700">
+			<nav
+				aria-label="Breadcrumb"
+				class="flex flex-wrap items-center gap-2 text-xs">
+				{
+					breadcrumbs.map((crumb, index) => (
+						<>
+							{index === breadcrumbs.length - 1 ? (
+								<span class="text-lime-400 font-medium truncate uppercase">
+									{title || crumb.name}
+								</span>
+							) : (
+								<>
+									<a
+										href={crumb.href}
+										class="text-gray-400 hover:text-white transition-colors truncate uppercase">
+										{crumb.name}
+									</a>
+									<span class="text-gray-600">/</span>
+								</>
+							)}
+						</>
+					))
+				}
+			</nav>
+		</div>
+
 		<p class="text-xs font-bold uppercase tracking-wider mb-4 text-lime-400">
 			Contents
 		</p>

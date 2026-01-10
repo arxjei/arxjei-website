@@ -9,7 +9,9 @@ const userData = await github.getUser();
 const { default: techStack } = await import("@data/misc/tech-stack.json");
 ---
 
-<section id="contact-me" class="grid grid-cols-1">
+<section
+	id="contact-me"
+	class="grid grid-cols-1">
 	<CustomBrutalCard
 		class="md:col-span-2 border-t-2 border-b-2 border-black !bg-black text-white">
 		<h1 class="text-5xl md:text-5xl lg:text-6xl font-bold mb-4">
@@ -34,7 +36,7 @@ const { default: techStack } = await import("@data/misc/tech-stack.json");
 	<CustomBrutalCard
 		class="border-t-2 border-b-2 sm:border-l-2 border-black !bg-lime-400">
 		<h1 class="text-5xl md:text-5xl lg:text-6xl font-bold mb-2">
-			Here's The Technologies I'm Using
+			Technologies I Use
 		</h1>
 		<p class="text-black text-base md:text-xl mb-4">
 			Feel free to connect with me on these platforms.

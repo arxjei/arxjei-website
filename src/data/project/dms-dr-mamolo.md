@@ -11,7 +11,7 @@ tags:
   - alpinejs
   - tailwindcss
   - mysql
-pubDate: 11/10/2026 08:00
+pubDate: "2026-01-10T08:00:00+08:00"
 author: "Ar Jay Marigondon"
 viewLiveDemoLink: ""
 ---
