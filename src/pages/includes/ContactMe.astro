@@ -1,9 +1,10 @@
 ---
+import type { GitHubUser } from "@lib/github";
 import CustomBrutalCard from "@components/CustomBrutalCard.astro";
 import CustomBrutalPill from "@components/CustomBrutalPill.astro";
 
 interface Props {
-	userData: any;
+	userData: GitHubUser;
 	techStack: any;
 }
 

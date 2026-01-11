@@ -1,11 +1,13 @@
 ---
+import type { GitHubUser } from "@lib/github";
+
 import CustomBrutalButton from "@components/CustomBrutalButton.astro";
 import CustomBrutalCard from "@components/CustomBrutalCard.astro";
 import CustomBrutalPill from "@components/CustomBrutalPill.astro";
 import { Image } from "astro:assets";
 
 interface Props {
-	userData: any;
+	userData: GitHubUser;
 	userDataSocialMedia: any;
 }
 
