@@ -3,9 +3,10 @@ interface Props {
 	class?: string;
 	color?: string;
 	hoverable?: boolean;
+	tooltip?: string;
 }
 
-const { class: className, color, hoverable = true } = Astro.props;
+const { class: className, color, hoverable = true, tooltip } = Astro.props;
 ---
 
 <style define:vars={{ color }}>
@@ -27,6 +28,7 @@ const { class: className, color, hoverable = true } = Astro.props;
 </style>
 
 <span
+	title={tooltip}
 	class={`custom-brutal-pill ${hoverable ? "custom-brutal-pill-hoverable" : ""} ${className ?? ""}`}>
 	<slot />
 </span>

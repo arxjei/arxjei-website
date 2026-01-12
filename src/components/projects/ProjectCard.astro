@@ -1,5 +1,11 @@
 ---
-import { CalendarPlus, MoveRight, User } from "lucide-astro";
+import {
+	CalendarPlus,
+	CircleDashed,
+	GitPullRequestDraft,
+	MoveRight,
+	User,
+} from "lucide-astro";
 import CustomBrutalCard from "@components/CustomBrutalCard.astro";
 import type { CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
@@ -19,13 +25,27 @@ const { default: techStack } = await import("@data/misc/tech-stack.json");
 </div>
 
 <CustomBrutalCard class="border-2 border-black">
-	<div slot="header">
-		<h3 class="poppins text-lg">
+	<Fragment slot="header">
+		<h3 class="poppins text-md line-clamp-1">
 			{project.data.title}
 		</h3>
-	</div>
+		{
+			project.data.draft && (
+				<CustomBrutalPill
+					class="!bg-lime-400 flex items-center gap-2"
+					hoverable={false}
+					tooltip="Save as Draft">
+					<GitPullRequestDraft
+						size={18}
+						strokeWidth={2.5}
+					/>
+					Draft
+				</CustomBrutalPill>
+			)
+		}
+	</Fragment>
 
-	<div class="relative border-3 border-black my-4 h-56">
+	<div class="border-3 border-black my-4 h-56">
 		<Image
 			src={project.data.imgUrl}
 			alt={project.data.title}
@@ -97,18 +117,11 @@ const { default: techStack } = await import("@data/misc/tech-stack.json");
 					)
 				}
 			</ul>
-			{
-				project.data.draft && (
-					<span class="bg-green rounded-full border-2 py-1 px-4 text-sm border-black card-shadow">
-						Draft
-					</span>
-				)
-			}
 		</div>
 	</div>
 
-	<div slot="footer">
-		<div class="flex items-center gap-2">
+	<Fragment slot="footer">
+		<div class="flex items-center justify-between gap-2">
 			<CalendarPlus
 				size={18}
 				strokeWidth={2.5}
@@ -126,12 +139,6 @@ const { default: techStack } = await import("@data/misc/tech-stack.json");
 					})
 				}
 			</div>
-			·
-			<User
-				size={18}
-				strokeWidth={2.5}
-			/>
-			<div class="poppins text-sm text-black">{project.data.author}</div>
 		</div>
-	</div>
+	</Fragment>
 </CustomBrutalCard>

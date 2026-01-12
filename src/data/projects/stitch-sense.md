@@ -1,6 +1,6 @@
 ---
 imgUrl: "@assets/blogs/stitch-sense.png"
-title: "Stitch Sense - 3D Virtual Gown Try-On Platform"
+title: "Stitch Sense"
 description:
   A web-based platform that uses AI-powered 3D visualization to let customers
   virtually try on custom gowns before purchase.

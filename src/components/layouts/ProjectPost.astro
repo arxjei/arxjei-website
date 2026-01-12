@@ -10,44 +10,23 @@ import RecentProjectPost from "@pages/includes/RecentProjectPost.astro";
 const ogImage = new URL(`/v1/generate/og/${Astro.params.slug}.png`, Astro.url);
 
 interface Props {
-	title: string;
-	headings: unknown;
-	description: string;
-	pubDate: Date;
-	author: string;
-	viewLiveDemoLink: string | undefined;
-	developerNotes: string | undefined;
-	tags: string[];
+	project: any;
 }
 
-const {
-	author,
-	pubDate,
-	headings,
-	description,
-	title,
-	viewLiveDemoLink,
-	developerNotes,
-	tags,
-} = Astro.props;
+const { project } = Astro.props;
 
 const userData = await github.getUser();
 ---
 
 <BaseLayout
-	title={title}
-	description={description}
+	title={project.data.title}
+	description={project.data.description}
 	ogImage={ogImage}
 	userData={userData}>
 	<main
 		class="lg:grid lg:grid-cols-5 min-h-screen bg-gradient-to-b from-white to-gray-50">
-		<ProjectSideBar headings={headings as any[]} />
-		<ProjectContent
-			{pubDate}
-			{author}
-			{viewLiveDemoLink}
-			{developerNotes}
-			{tags}>
+		<ProjectSideBar headings={project.rendered?.metadata?.headings as any[]} />
+		<ProjectContent {...project.data}>
 			<slot />
 		</ProjectContent>
 	</main>
