@@ -11,7 +11,7 @@ interface Props {
 
 const { count } = Astro.props;
 
-const projects = await getRecentProjects(count ?? 4);
+const projects = await getRecentProjects(count ?? 3);
 ---
 
 <section id="recent-projects">

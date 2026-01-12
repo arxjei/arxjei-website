@@ -1,5 +1,5 @@
 ---
-imgUrl: "@assets/placeholder.webp"
+imgUrl: "@assets/blogs/smart-scheduling-system/authentication.webp"
 title: "Smart Class Scheduling System"
 description:
   A web-based scheduling platform that uses AI to create class schedules, find
@@ -23,7 +23,7 @@ developerNotes:
   "The brands and logos shown are fictional and used solely to demonstrate my
   development skills; any resemblance to real brands or entities is purely
   coincidental."
-draft: true
+draft: false
 ---
 
 ## Overview
@@ -51,11 +51,18 @@ schedules before problems happen.
 - **Secretaries/Admins** see a main dashboard showing total professors,
   available rooms, registered subjects, and any schedule conflicts.
 
+![Authentication](../../assets/blogs/smart-scheduling-system/authentication.webp)
+
 ### Complete Resource Management
 
 Admins control all scheduling parts including professor info, subject lists,
 course details, room inventory, semester settings, and user accounts. The system
 tracks room types and sizes to match classes with the right spaces.
+
+![Rooms](../../assets/blogs/smart-scheduling-system/rooms.webp)
+![Sections](../../assets/blogs/smart-scheduling-system/sections.webp)
+![Subjects](../../assets/blogs/smart-scheduling-system/subjects.webp)
+![Students](../../assets/blogs/smart-scheduling-system/students.webp)
 
 ### Smart Conflict Detection
 
@@ -64,11 +71,15 @@ rooms, or professor availability problems. When it finds conflicts, it alerts
 admins and gives AI suggestions to fix them. This makes sure every schedule
 works before it's finalized.
 
+![Dashboard](../../assets/blogs/smart-scheduling-system/dashboard.webp)
+
 ### Schedule Lock Feature
 
 Once a schedule is checked and approved, admins can finalize and lock it to stop
 accidental changes. This keeps the schedule safe during active semesters while
 still allowing changes when needed.
+
+![DashboardFinalize](../../assets/blogs/smart-scheduling-system/dashboard-finalize.webp)
 
 ### Weekly Schedule View
 

@@ -43,14 +43,20 @@ const { default: techStack } = await import("@data/misc/tech-stack.json");
 						hour12: true,
 						hour: "numeric",
 						minute: "numeric",
-						timeZoneName: "long",
 					})
 				}
 			</div>
 			<span class="text-black">•</span>
 			<span>by <span class="font-medium">{author}</span></span>
-			<span class="text-black">•</span>
-			{draft && <span class="font-medium">Save as Draft</span>}
+
+			{
+				draft && (
+					<>
+						<span class="text-black">•</span>
+						<span class="font-medium">Save as Draft</span>
+					</>
+				)
+			}
 		</div>
 
 		{

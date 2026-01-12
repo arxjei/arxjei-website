@@ -19,6 +19,7 @@ developerNotes:
   "The brands and logos shown are fictional and used solely to demonstrate my
   development skills; any resemblance to real brands or entities is purely
   coincidental."
+draft: false
 ---
 
 ## Overview

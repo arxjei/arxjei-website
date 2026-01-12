@@ -5,7 +5,7 @@ import { github } from "@lib/github";
 import BaseLayout from "@components/layouts/BaseLayout.astro";
 import ProjectSideBar from "@components/projects/ProjectSideBar.astro";
 import ProjectContent from "@components/projects/ProjectContent.astro";
-import RecentProjectPost from "@pages/includes/RecentProjectPost.astro";
+import RecentProjectPost from "@components/sections/RecentProjectPost.astro";
 
 const ogImage = new URL(`/v1/generate/og/${Astro.params.slug}.png`, Astro.url);
 
