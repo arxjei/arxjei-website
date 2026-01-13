@@ -1,0 +1,27 @@
+---
+import StarredCard from "@components/starred/StarredCard.astro";
+
+interface Props {
+	starredRepos: any[];
+}
+
+const { starredRepos } = Astro.props;
+
+const grouped = starredRepos.reduce(
+	(acc, repo) => {
+		const lang = repo.language || "Other";
+		if (!acc[lang]) acc[lang] = [];
+		acc[lang].push(repo);
+		return acc;
+	},
+	{} as Record<string, typeof starredRepos>
+);
+---
+
+<div class="flex flex-wrap justify-center gap-4">
+	{
+		(Object.entries(grouped) as [string, any[]][]).flatMap(
+			([language, repos]) => repos.map((repo) => <StarredCard repo={repo} />)
+		)
+	}
+</div>

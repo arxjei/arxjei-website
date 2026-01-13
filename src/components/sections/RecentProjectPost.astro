@@ -15,11 +15,10 @@ const projects = await getRecentProjects(count ?? 3);
 ---
 
 <section id="recent-projects">
-	<CustomBrutalCard class="border-t-2 border-b-2 border-black !bg-lime-400">
+	<CustomBrutalCard
+		class="border-t-2 border-b-2 border-black !bg-lime-400 !drop-shadow-none">
 		<div class="flex justify-between items-center mb-5">
-			<h2 class="text-4xl md:text-4xl lg:text-6xl poppins font-bold">
-				Recent Project
-			</h2>
+			<h1 class="righteous text-6xl mb-2">Projects</h1>
 			<div class="hidden md:block">
 				<CustomBrutalButton href="/projects/">More Projects</CustomBrutalButton>
 			</div>

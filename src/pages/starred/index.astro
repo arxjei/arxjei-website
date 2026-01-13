@@ -1,0 +1,25 @@
+---
+export const prerender = true;
+
+import { github } from "@lib/github";
+import BaseLayout from "@components/layouts/BaseLayout.astro";
+import StarredList from "@components/starred/StarredList.astro";
+
+const userData = await github.getUser();
+const starredRepos = await github.getStarredRepos({ per_page: 20 });
+---
+
+<BaseLayout
+	title="Starred"
+	description="You can find a collection of starred repositories"
+	pageTitle="Starred"
+	userData={userData}>
+	<main class="bg-lime-400 p-6">
+		<h1 class="righteous text-6xl mb-2">Starred</h1>
+		<p class="righteous text-2xl mb-6">
+			You can find a collection of starred repositories
+		</p>
+
+		<StarredList starredRepos={starredRepos} />
+	</main>
+</BaseLayout>

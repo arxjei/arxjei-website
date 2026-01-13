@@ -134,6 +134,23 @@ class GitHubAPI {
 			`/users/${this.username}/social_accounts`
 		);
 	}
+
+	// Get starred repositories
+	async getStarredRepos(options?: {
+		per_page?: number;
+		sort?: "created" | "updated";
+		direction?: "asc" | "desc";
+	}): Promise<GitHubRepo[]> {
+		const params = new URLSearchParams({
+			per_page: String(options?.per_page || 30),
+			sort: options?.sort || "created",
+			direction: options?.direction || "desc",
+		});
+
+		return this.fetch<GitHubRepo[]>(
+			`/users/${this.username}/starred?${params}`
+		);
+	}
 }
 
 // Export a singleton instance

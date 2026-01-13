@@ -3,9 +3,10 @@ interface Props {
 	class?: string;
 	classBody?: string;
 	color?: string;
+	hoverable?: boolean;
 }
 
-const { class: className, classBody, color } = Astro.props;
+const { class: className, classBody, color, hoverable = false } = Astro.props;
 const hasHeader = Astro.slots.has("header");
 const hasFooter = Astro.slots.has("footer");
 ---
@@ -25,7 +26,8 @@ const hasFooter = Astro.slots.has("footer");
 		overflow: hidden;
 		transition: all 0.2s ease-in-out;
 		font-family: "Poppins", serif;
-		filter: drop-shadow(5px 5px 0 black);
+		filter: drop-shadow(3px 3px 0 black);
+		transition: filter 0.2s ease;
 		display: flex;
 		flex-direction: column;
 	}
@@ -54,9 +56,14 @@ const hasFooter = Astro.slots.has("footer");
 		border-top: 2px solid black;
 		margin-top: auto;
 	}
+
+	.custom-brutal-card-hoverable:hover {
+		filter: drop-shadow(5px 5px 0 black);
+	}
 </style>
 
-<div class={`custom-brutal-card ${className || ""}`}>
+<div
+	class={`custom-brutal-card ${className || ""} ${hoverable ? "custom-brutal-card-hoverable" : ""}`}>
 	{
 		hasHeader && (
 			<div class="custom-brutal-card-header">

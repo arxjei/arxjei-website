@@ -1,12 +1,18 @@
 ---
-// get site
+import type { GitHubUser } from "@lib/github";
+
+interface Props {
+	userData: GitHubUser;
+}
+
+const { userData } = Astro.props;
 ---
 
 <footer class="text-white p-6 border-t-2 border-black bg-black text-white">
 	<div class="max-w-7xl mx-auto text-center">
 		<p class="text-lg font-medium poppins">
 			&copy; {new Date().getFullYear()}
-			Arjay Marigondon. All rights reserved.
+			{userData.name}. All rights reserved.
 		</p>
 	</div>
 </footer>

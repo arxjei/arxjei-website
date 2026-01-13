@@ -7,11 +7,17 @@ interface Props {
 }
 
 const { projects } = Astro.props;
+
+const sortedProjects = projects.sort((a, b) => {
+	const dateA = new Date(a.data.pubDate || 0);
+	const dateB = new Date(b.data.pubDate || 0);
+	return dateB.valueOf() - dateA.valueOf();
+});
 ---
 
 <ul class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
 	{
-		projects.map((project) => {
+		sortedProjects.map((project) => {
 			return (
 				<li>
 					<ProjectCard project={project} />

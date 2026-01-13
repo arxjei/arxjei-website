@@ -1,0 +1,32 @@
+---
+interface Props {
+	username: string;
+	href?: string;
+}
+
+const { username, href = "/" } = Astro.props;
+---
+
+<style>
+	.brutal-logo {
+		display: inline-block;
+		transition: all 0.15s ease-in-out;
+	}
+
+	.brutal-logo p {
+		transition: all 0.15s ease-in-out;
+	}
+
+	.brutal-logo:hover p {
+		text-shadow: 3px 3px 0 #a3e635;
+	}
+</style>
+
+<a
+	href={href}
+	class="brutal-logo"
+	title="Back to Home">
+	<p class="righteous md:text-5xl text-4xl">
+		@{username}
+	</p>
+</a>

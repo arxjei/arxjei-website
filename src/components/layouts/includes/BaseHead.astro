@@ -99,5 +99,39 @@ const userData = await github.getUser();
 
 	<ViewTransitions />
 
+	<style is:global>
+		#brutal-progress {
+			position: fixed;
+			top: 0;
+			left: 0;
+			height: 1px;
+			background: oklch(84.1% 0.238 128.85);
+			width: 0%;
+			transition: width 0.3s ease;
+			z-index: 9999;
+		}
+	</style>
+
+	<script>
+		let progress: HTMLDivElement | null = null;
+
+		document.addEventListener("astro:before-preparation", () => {
+			progress = document.createElement("div");
+			progress.id = "brutal-progress";
+			document.body.appendChild(progress);
+
+			// progress animation
+			setTimeout(() => (progress!.style.width = "30%"), 50);
+			setTimeout(() => (progress!.style.width = "90%"), 200);
+		});
+
+		document.addEventListener("astro:page-load", () => {
+			if (progress) {
+				progress.style.width = "100%";
+				setTimeout(() => progress?.remove(), 300);
+			}
+		});
+	</script>
+
 	<slot />
 </head>

@@ -1,0 +1,68 @@
+---
+import CustomBrutalCard from "@components/CustomBrutalCard.astro";
+import { Star, GitFork } from "lucide-astro";
+
+interface Props {
+	repo: any;
+	class?: string;
+}
+
+const { repo, class: className } = Astro.props;
+
+function formatNumber(num: number): string {
+	if (num >= 1000) {
+		return `${(num / 1000).toFixed(1)}k`;
+	}
+	return num.toString();
+}
+
+function getLanguageColor(language: string | null): string {
+	const colors: Record<string, string> = {
+		JavaScript: "#f1e05a",
+		TypeScript: "#3178c6",
+		Python: "#3572A5",
+		Java: "#b07219",
+		Go: "#00ADD8",
+		Rust: "#dea584",
+		PHP: "#4F5D95",
+		Ruby: "#701516",
+		CSS: "#563d7c",
+		HTML: "#e34c26",
+		Vue: "#41b883",
+		React: "#61dafb",
+	};
+	return language ? colors[language] || "#858585" : "#858585";
+}
+---
+
+<a
+	href={repo.html_url}
+	target="_blank"
+	rel="noopener noreferrer">
+	<CustomBrutalCard
+		class="border-2 border-black max-w-sm"
+		hoverable={true}>
+		<h3 class="font-bold">{repo.name}</h3>
+		<p class="text-sm">{repo.description}</p>
+		<Fragment slot="footer">
+			<div class="flex gap-3">
+				<div class="flex items-center gap-1">
+					<Star
+						class="text-black"
+						size={18}
+						strokeWidth={2.5}
+					/>
+					{repo.stargazers_count}
+				</div>
+				<div class="flex items-center gap-1">
+					<GitFork
+						class="text-black"
+						size={18}
+						strokeWidth={2.5}
+					/>
+					{repo.forks_count}
+				</div>
+			</div>
+		</Fragment>
+	</CustomBrutalCard>
+</a>
