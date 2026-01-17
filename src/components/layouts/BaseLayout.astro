@@ -18,6 +18,16 @@ const { title, description, classList, pageTitle, ogImage, userData } =
 	Astro.props;
 ---
 
+<style>
+	body {
+		background-image:
+			linear-gradient(to right, #000 1px, transparent 1px),
+			linear-gradient(to bottom, #000 1px, transparent 1px);
+		background-size: 24px 24px;
+		background-attachment: fixed;
+	}
+</style>
+
 <html
 	lang="en"
 	class="h-full">
@@ -27,7 +37,7 @@ const { title, description, classList, pageTitle, ogImage, userData } =
 		description={description}
 	/>
 
-	<body class:list={[classList]}>
+	<body class:list={classList}>
 		<div
 			class="max-w-[100rem] mx-auto [@media(min-width:100rem)]:border-l-2 [@media(min-width:100rem)]:border-r-2 [@media(min-width:100rem)]:border-black">
 			<BaseNavigation
